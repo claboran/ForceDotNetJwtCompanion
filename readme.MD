@@ -131,7 +131,7 @@ The Mock Test server is based on node.js and the Express framework. You have to 
 to run the tests on your own.
 
 How to create the docker image BEFORE you run the test:
-```
+```bash
 cd ForceDotNetJwtCompanion/express-test-docker
 npm install
 npm run build-local-docker-image
