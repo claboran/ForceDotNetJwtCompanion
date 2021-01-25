@@ -1,5 +1,5 @@
 # ForceDotNetJwtCompanion
-*This project is not offered, sponsored, or endorsed by Salesforce.*
+*This project is not offered, sponsored or endorsed by Salesforce.*
 > DotNet Authorization of an Salesforce Org with OAuth 2.0 JWT Bearer Flow.
 
 It is undesired for server to server communication to maintain passwords and client secrets of a Connected App
@@ -31,7 +31,7 @@ First things first - prepare your Org. Everything to know could be found here:
 [Salesforce generate key](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_auth_key_and_cert.htm)
 
 This is how I generated the private key and certificates for testing (just follow along the documentation):
-```
+```bash
 cd ForceDotNetJwtCompanionTest/TestKeys 
 openssl genrsa -des3 -passout pass:secret -out server.pass.key 2048
 openssl rsa -passin pass:secret -in server.pass.key -out server.key
@@ -46,7 +46,7 @@ openssl rsa -des3 -in .\server.key  -out .\server.key.enc
 
 ### How to use it in your code
 #### Public Api
-```
+```csharp
     public interface IJwtAuthenticationClient : IDisposable
     {
         string InstanceUrl { get; set; }
@@ -101,7 +101,7 @@ openssl rsa -des3 -in .\server.key  -out .\server.key.enc
     }
 ```
 Usage in code:
-```
+```csharp
 var apiVersion = "v50.0";
 var privateKey = "your_private_loaded_from_somewhere";
 var passPhrase = "your_secret_passphrase_loaded_from_somewhere";
