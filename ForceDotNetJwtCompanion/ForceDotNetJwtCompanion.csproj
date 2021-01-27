@@ -2,6 +2,13 @@
 
     <PropertyGroup>
         <TargetFramework>netstandard2.1</TargetFramework>
+        <Title>.Net Authorization of an Salesforce Org with OAuth 2.0 JWT Bearer Flow</Title>
+        <Authors>Christian Laboranowitsch</Authors>
+        <PackageProjectUrl>https://github.com/claboran/ForceDotNetJwtCompanion</PackageProjectUrl>
+        <PackageLicenseUrl>https://github.com/claboran/ForceDotNetJwtCompanion/blob/master/LICENSE</PackageLicenseUrl>
+        <RepositoryUrl>https://github.com/claboran/ForceDotNetJwtCompanion.git</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <PackageTags>jwt salesforce .Net</PackageTags>
     </PropertyGroup>
 
     <ItemGroup>
