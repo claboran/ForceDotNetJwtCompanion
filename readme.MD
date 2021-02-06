@@ -2,7 +2,9 @@
 *This project is not offered, sponsored or endorsed by Salesforce.*
 > DotNet Authorization of an Salesforce Org with OAuth 2.0 JWT Bearer Flow.
 
+![Nuget](https://img.shields.io/nuget/v/ForceDotNetJwtCompanion?style=plastic)
 [![Build Status](https://dev.azure.com/laboranowitsch/external-projects/_apis/build/status/ForceDotNetJwtCompanion-build-and-publish?branchName=master)](https://dev.azure.com/laboranowitsch/external-projects/_build/latest?definitionId=9&branchName=master)
+![GitHub](https://img.shields.io/github/license/claboran/ForceDotNetJwtCompanion)
 
 It is undesired for server to server communication to maintain passwords and client secrets of a Connected App
 for several reasons:
@@ -105,7 +107,7 @@ openssl rsa -des3 -in .\server.key  -out .\server.key.enc
 Usage in code:
 ```csharp
 var apiVersion = "v50.0";
-var privateKey = "your_private_loaded_from_somewhere";
+var privateKey = "your_private_key_loaded_from_somewhere";
 var passPhrase = "your_secret_passphrase_loaded_from_somewhere";
 var authClient = new JwtAuthenticationClient(apiVersion);
 
@@ -146,7 +148,6 @@ Licensed under the MIT license.
 * Implement JTI to prevent JWT replay attacks
 * Improve comments in code
 * CI/CD
-* nuget :-) ...
 
 ## Dependencies
 * Newtonsoft.Json
