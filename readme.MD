@@ -2,6 +2,8 @@
 *This project is not offered, sponsored or endorsed by Salesforce.*
 > DotNet Authorization of an Salesforce Org with OAuth 2.0 JWT Bearer Flow.
 
+[![Build Status](https://dev.azure.com/laboranowitsch/external-projects/_apis/build/status/ForceDotNetJwtCompanion-build-and-publish?branchName=master)](https://dev.azure.com/laboranowitsch/external-projects/_build/latest?definitionId=9&branchName=master)
+
 It is undesired for server to server communication to maintain passwords and client secrets of a Connected App
 for several reasons:
 
