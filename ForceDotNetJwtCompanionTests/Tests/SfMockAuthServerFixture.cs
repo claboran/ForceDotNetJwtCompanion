@@ -5,7 +5,7 @@ using DotNet.Testcontainers.Containers.Modules;
 using DotNet.Testcontainers.Containers.WaitStrategies;
 using Xunit;
 
-namespace ForceDotNetJwtCompanionTest.Tests
+namespace ForceDotNetJwtCompanionTests.Tests
 {
     /// <summary>
     /// SfMockAuthServerFixture

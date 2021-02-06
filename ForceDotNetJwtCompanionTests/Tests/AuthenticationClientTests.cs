@@ -1,11 +1,10 @@
-using System;
 using System.Threading.Tasks;
 using ForceDotNetJwtCompanion;
 using ForceDotNetJwtCompanion.Util;
+using ForceDotNetJwtCompanionTests.Tests;
 using Xunit;
-using Xunit.Abstractions;
 
-namespace ForceDotNetJwtCompanionTest.Tests
+namespace ForceDotNetJwtCompanionTests.Tests
 {
     public class AuthenticationClientTests : IClassFixture<SfMockAuthServerFixture>
     {

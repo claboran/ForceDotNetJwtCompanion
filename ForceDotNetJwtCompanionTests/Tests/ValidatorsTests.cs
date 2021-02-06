@@ -2,7 +2,7 @@ using System;
 using Xunit;
 using static ForceDotNetJwtCompanion.Validators;
 
-namespace ForceDotNetJwtCompanionTest.Tests
+namespace ForceDotNetJwtCompanionTests.Tests
 {
     public class ValidatorsTests
     {
