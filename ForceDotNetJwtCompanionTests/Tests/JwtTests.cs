@@ -3,7 +3,7 @@ using ForceDotNetJwtCompanion.Jwt;
 using ForceDotNetJwtCompanion.Util;
 using Xunit;
 
-namespace ForceDotNetJwtCompanionTest.Tests
+namespace ForceDotNetJwtCompanionTests.Tests
 {
     public class JwtTests
     {

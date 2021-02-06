@@ -2,7 +2,7 @@ using ForceDotNetJwtCompanion.Util;
 using Xunit;
 using static ForceDotNetJwtCompanion.Util.CommonHelpers;
 
-namespace ForceDotNetJwtCompanionTest.Tests
+namespace ForceDotNetJwtCompanionTests.Tests
 {
     public class KeyHelperTests
     {
