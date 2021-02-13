@@ -22,7 +22,7 @@ namespace ForceDotNetJwtCompanion.Jwt
         private const string Header = "{\"alg\": \"RS256\"}";
         private JwtPayload _jwtPayload;
         private string _consumerKey; // aka ClientId
-        private string _tokenEndpoint;
+        private string _audience;
         private string _subject; // Salesforce user
         private string _expiration;
         private readonly PrivateKeyWrapper _privateKeyWrapper;
@@ -40,9 +40,9 @@ namespace ForceDotNetJwtCompanion.Jwt
             return this;
         }
 
-        public Jwt AddTokenEndpoint(string tokenEndpoint)
+        public Jwt AddAudience(string tokenEndpoint)
         {
-            _tokenEndpoint = tokenEndpoint;
+            _audience = tokenEndpoint;
             return this;
         }
 
@@ -64,12 +64,12 @@ namespace ForceDotNetJwtCompanion.Jwt
                 string.IsNullOrEmpty(_consumerKey) ||
                 string.IsNullOrEmpty(_expiration) ||
                 string.IsNullOrEmpty(_subject) ||
-                string.IsNullOrEmpty(_tokenEndpoint) 
+                string.IsNullOrEmpty(_audience) 
                 ) throw new ArgumentException("Missing arguments for JWT!");
             
             _jwtPayload = new JwtPayload
             {
-                Aud = _tokenEndpoint,
+                Aud = _audience,
                 Exp = _expiration,
                 Iss = _consumerKey,
                 Sub = _subject
