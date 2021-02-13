@@ -78,24 +78,32 @@ namespace ForceDotNetJwtCompanion
         private const string UserAgent = "forcedotnet-jwt-companion";
         private const string TokenRequestEndpointUrl = "https://login.salesforce.com/services/oauth2/token";
         private const string GrantType = "urn:ietf:params:oauth:grant-type:jwt-bearer";
+        private const string ProdAudience = "https://login.salesforce.com";
+        private const string TestAudience = "https://test.salesforce.com";
         
         private readonly HttpClient _httpClient;
         private readonly bool _disposeHttpClient;
+        private readonly bool _isProd;
 
-        public JwtAuthenticationClient(string apiVersion = "v50.0") : this(new HttpClient(), apiVersion)
+        public JwtAuthenticationClient(
+            string apiVersion = "v50.0", 
+            bool isProd = true
+            ) : this(new HttpClient(), apiVersion, isProd)
         {
         }
         
         public JwtAuthenticationClient(
             HttpClient httpClient, 
             string apiVersion = "v50.0",
-            bool callerWillDisposeHttpClient = false
+            bool callerWillDisposeHttpClient = false,
+            bool isProd = true
             )
         {
             
             _httpClient = httpClient ?? throw new ArgumentException("httpClient");
             _disposeHttpClient = !callerWillDisposeHttpClient;
             ApiVersion = apiVersion;
+            _isProd = isProd;
         }
 
         public async Task JwtUnencryptedPrivateKeyAsync(string clientId, string key, string username)
@@ -117,7 +125,7 @@ namespace ForceDotNetJwtCompanion
                     clientId, 
                     KeyHelpers.CreatePrivateKeyWrapper(key),
                     username,
-                    tokenEndpoint
+                    _isProd ? ProdAudience : TestAudience
                 ),
                 tokenEndpoint
             );
@@ -130,17 +138,17 @@ namespace ForceDotNetJwtCompanion
                     clientId, 
                     KeyHelpers.CreatePrivateKeyWrapperWithPassPhrase(key, passphrase),
                     username,
-                    tokenEndpoint
+                    _isProd ? ProdAudience : TestAudience
                 ),
                 tokenEndpoint
             );
         }
 
-        private string CreateJwt(string clientId, PrivateKeyWrapper keyWrapper, string username, string tokenEndpoint) =>
+        private string CreateJwt(string clientId, PrivateKeyWrapper keyWrapper, string username, string audience) =>
             Jwt.Jwt.CreateJwt(keyWrapper)
                 .AddExpiration(DateTime.UtcNow)
                 .AddSubject(username)
-                .AddTokenEndpoint(tokenEndpoint)
+                .AddAudience(audience)
                 .AddConsumerKey(clientId)
                 .Build();
 
