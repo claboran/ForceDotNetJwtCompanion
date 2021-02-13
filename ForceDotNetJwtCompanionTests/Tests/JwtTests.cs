@@ -32,7 +32,7 @@ namespace ForceDotNetJwtCompanionTests.Tests
                     )
                 .AddExpiration(new DateTime(2021, 1, 10, 0, 0 ,0, DateTimeKind.Utc))
                 .AddSubject("chris@laboranowitsch.de")
-                .AddTokenEndpoint("https://test.salesforce.com")
+                .AddAudience("https://test.salesforce.com")
                 .AddConsumerKey("3MVG99OxTyEMCQ3gNp2PjkqeZKxnmAiG1xV4oHh9AKL_rSK.BoSVPGZHQukXnVjzRgSuQqGn75NL7yfkQcyy7")
                 .Build();
             
