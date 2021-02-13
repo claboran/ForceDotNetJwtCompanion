@@ -9,6 +9,8 @@
         <RepositoryUrl>https://github.com/claboran/ForceDotNetJwtCompanion.git</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
         <PackageTags>jwt salesforce .Net</PackageTags>
+        <PackageVersion>1.0.1</PackageVersion>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     </PropertyGroup>
 
     <ItemGroup>
