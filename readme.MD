@@ -49,6 +49,37 @@ openssl rsa -des3 -in .\server.key  -out .\server.key.enc
 > Private keys are currently supported in PEM format only!
 
 ### How to use it in your code
+
+> Authorization server URL and Audience Claim in JWT:
+>
+> The standard login URLs for Salesforce are:
+> * `https://login.salesforce.com` for production
+> * `https://test.salesforce.com` for test systems
+> 
+> A third option is the so called *My Domain* configuration.  The instance URL might be something like `https://{your-domain}.my.salesforce.com`
+> 
+> The `IJwtAuthenticationClient` provides overloaded methods with an additional parameter `tokenEndpoint` - it is possible to provide the token endpoint URL 
+> for *My Domain* or test instances by using the additional parameter.
+> 
+> * `https://test.salesforce.com/services/oauth2/token`
+> * `https://{your-domain}.my.salesforce.com/services/oauth2/token`
+> 
+> If you do not supply the additional parameter, the tokenEndpoint points to the prod instance: `https://login.salesforce.com/services/oauth2/token`
+> 
+> The constructor of the `JwtAuthenticationClient` expects and additional parameter: `isProd` defaulting
+> to *true*.
+> 
+> This setting is responsible to set the expected Audience Claim in the JWT.
+> 
+> ```
+> {
+>   "iss": "3MVG99OxTyEMCQ3gNp2PjkqeZKxnmAiG1xV4oHh9AKL_rSK.BoSVPGZHQukXnVjzRgSuQqGn75NL7yfkQcyy7",
+>   "sub": "chris@laboranowitsch.de",
+>   "aud": "https://test.salesforce.com", // <= https://login.salesforce.com if isProd=true
+>   "exp": "1610236980"
+> }
+> ```
+
 #### Public Api
 ```csharp
     public interface IJwtAuthenticationClient : IDisposable
@@ -109,7 +140,8 @@ Usage in code:
 var apiVersion = "v50.0";
 var privateKey = "your_private_key_loaded_from_somewhere";
 var passPhrase = "your_secret_passphrase_loaded_from_somewhere";
-var authClient = new JwtAuthenticationClient(apiVersion);
+var isProd = false;
+var authClient = new JwtAuthenticationClient(apiVersion, isProd);
 
 await authClient.JwtPrivateKeyAsync(
                 "your_consumer_key", 
