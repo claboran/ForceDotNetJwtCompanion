@@ -175,11 +175,13 @@ npm run build-local-docker-image
 ## License
 Licensed under the MIT license.
 
+## Nuget
+[ForceDotNetJwtCompanion](https://www.nuget.org/packages/ForceDotNetJwtCompanion/)
+
 ## Open issues
 * Needs some real life testing
 * Implement JTI to prevent JWT replay attacks
 * Improve comments in code
-* CI/CD
 
 ## Dependencies
 * Newtonsoft.Json
