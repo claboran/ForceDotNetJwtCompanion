@@ -9,8 +9,9 @@
         <RepositoryUrl>https://github.com/claboran/ForceDotNetJwtCompanion.git</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
         <PackageTags>jwt salesforce .Net</PackageTags>
-        <PackageVersion>1.0.1</PackageVersion>
+        <PackageVersion>1.0.2</PackageVersion>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <Description>Authenticate a Salesforce Connected App with OAuth2 JWT Bearer Flow</Description>
     </PropertyGroup>
 
     <ItemGroup>
