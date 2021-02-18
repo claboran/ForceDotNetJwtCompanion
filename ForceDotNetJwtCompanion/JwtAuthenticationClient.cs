@@ -88,7 +88,7 @@ namespace ForceDotNetJwtCompanion
         public JwtAuthenticationClient(
             string apiVersion = "v50.0", 
             bool isProd = true
-            ) : this(new HttpClient(), apiVersion, isProd)
+            ) : this(new HttpClient(), apiVersion: apiVersion, isProd: isProd)
         {
         }
         
