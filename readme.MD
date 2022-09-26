@@ -38,6 +38,7 @@ This is how I generated the private key and certificates for testing (just follo
 ```bash
 cd ForceDotNetJwtCompanionTest/TestKeys 
 openssl genrsa -des3 -passout pass:secret -out server.pass.key 2048
+# in case of openssl v3 use -traditional as additional parameter
 openssl rsa -passin pass:secret -in server.pass.key -out server.key
 openssl req -new -key server.key -out server.csr
 openssl x509 -req -sha256 -days 365 -in server.csr -signkey server.key -out server.crt

@@ -73,5 +73,18 @@ F46jxD/IWyLCGcW0/TVeRhK4AhrgohSlwyTXbSoqkFQgmHO/iRjbSw==";
             Assert.Equal(5691476862716795873, keyWrapper.Modulus.LongValue);
             Assert.Equal(-991353888792069707, keyWrapper.Exponent.LongValue);
         }
+        
+        [Fact]
+        public void CreatePrivateKeyWrapper_EncryptedInputOss3_Success()
+        {
+            var keyWrapper = KeyHelpers
+                .CreatePrivateKeyWrapperWithPassPhrase(
+                    LoadFromFile("TestKeys/server-new.pass.key"), 
+                    "secret"
+                );
+            Assert.Equal(9044465906678170219, keyWrapper.Modulus.LongValue);
+            Assert.Equal(-1003840893615552391, keyWrapper.Exponent.LongValue);
+        }
+
     }
 }
