@@ -41,6 +41,7 @@ namespace ForceDotNetJwtCompanion.Util
                     .FromByteArray(Convert
                         .FromBase64String(CommonHelpers.RemoveHeaderFooterFromKey(key)))
                     );
+
             return new PrivateKeyWrapper
             {
                 Modulus = keyStruct.Modulus, 
@@ -60,6 +61,7 @@ namespace ForceDotNetJwtCompanion.Util
                     )
                 );
             sig.BlockUpdate(bytesToSign, 0, bytesToSign.Length);
+
             return sig.GenerateSignature();
         }
 
@@ -68,6 +70,7 @@ namespace ForceDotNetJwtCompanion.Util
             var pemReader = new PemReader(new StringReader(key), new PasswordFinder(passphrase));
             var pem = (AsymmetricCipherKeyPair) pemReader.ReadObject();
             var param = (RsaPrivateCrtKeyParameters) pem.Private;
+
             return new PrivateKeyWrapper
             {
                 Modulus = param.Modulus, 

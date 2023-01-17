@@ -11,18 +11,15 @@ namespace ForceDotNetJwtCompanionTests.Tests
         {
             ClientIdKeyUserNameValidator("123", "123", "456");
         }
-        
+
         [Fact]
         public void ClientIdKeyUserNameValidator_InputNoClientAndKey_ThrowsException()
         {
             var assertion = Assert.Throws<ArgumentException>(
-                () => ClientIdKeyUserNameValidator(null, "", "456")
-                );
-            Assert.Equal(
-                "Missing arguments -> clientId: missing, key: missing, username: 456",
-                assertion.Message
-            );
-            
+                () => ClientIdKeyUserNameValidator(null, "", "456"));
+
+            Assert.Equal("Missing arguments -> clientId: missing, key: missing, username: 456", assertion.Message);
+
         }
 
         [Fact]
@@ -30,18 +27,15 @@ namespace ForceDotNetJwtCompanionTests.Tests
         {
             ClientIdKeyPassphraseUserNameValidator("123", "123", "123", "456");
         }
-        
+
         [Fact]
         public void ClientIdKeyPassphraseUserNameValidator_InputNoClientAndKey_ThrowsException()
         {
             var assertion = Assert.Throws<ArgumentException>(
-                () => ClientIdKeyPassphraseUserNameValidator(null, "", null, "456")
-            );
-            Assert.Equal(
-                "Missing arguments -> clientId: missing, key: missing, passphrase: missing, username: 456",
-                assertion.Message
-            );
-            
+                () => ClientIdKeyPassphraseUserNameValidator(null, "", null, "456"));
+
+            Assert.Equal("Missing arguments -> clientId: missing, key: missing, passphrase: missing, username: 456", assertion.Message);
+
         }
     }
 }

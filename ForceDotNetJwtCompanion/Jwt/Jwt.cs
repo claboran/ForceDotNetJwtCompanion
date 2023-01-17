@@ -32,7 +32,7 @@ namespace ForceDotNetJwtCompanion.Jwt
             _privateKeyWrapper = privateKeyWrapper;
         }
 
-        public static Jwt CreateJwt(PrivateKeyWrapper privateKeyWrapper) => new Jwt(privateKeyWrapper);
+        public static Jwt CreateJwt(PrivateKeyWrapper privateKeyWrapper) => new(privateKeyWrapper);
 
         public Jwt AddConsumerKey(string consumerKey)
         {
@@ -74,11 +74,13 @@ namespace ForceDotNetJwtCompanion.Jwt
                 Iss = _consumerKey,
                 Sub = _subject
             };
+
             var bytesToSign = Encoding.UTF8.GetBytes(
                 string.Join(".", 
                     CommonHelpers.UrlEncode(Encoding.UTF8.GetBytes(Header)), 
                     _jwtPayload.ConvertToBase64())
                 );
+
             return string
                 .Join(".", 
                     CommonHelpers.UrlEncode(Encoding.UTF8.GetBytes(Header)), 

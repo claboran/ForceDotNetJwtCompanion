@@ -6,7 +6,7 @@ namespace ForceDotNetJwtCompanion.Util
 {
     public static class CommonHelpers
     {
-        private static readonly string[] itemsToRemove =
+        private static readonly string[] ItemsToRemove =
         {
             "-----BEGIN PRIVATE KEY-----", 
             "-----END PRIVATE KEY-----", 
@@ -25,10 +25,6 @@ namespace ForceDotNetJwtCompanion.Util
         public static string LoadFromFile(string path) => ReadAllText(path);
 
         public static string RemoveHeaderFooterFromKey(string key) =>
-            itemsToRemove
-                .Aggregate(key, 
-                    (current, item) => current
-                        .Replace(item, string.Empty)
-                ).Trim();
+            ItemsToRemove.Aggregate(key, (current, item) => current.Replace(item, string.Empty)).Trim();
     }
 }

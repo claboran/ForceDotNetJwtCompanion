@@ -7,7 +7,7 @@ namespace ForceDotNetJwtCompanionTests.Tests
     public class KeyHelperTests
     {
 
-        private string GetTestPrivKey() => @"MIIEpAIBAAKCAQEA0vU1360pbcmi9lXFyH3Cm4pqvoN01ni8b07pEzNb8dUbn5/D
+        private static string GetTestPrivKey() => @"MIIEpAIBAAKCAQEA0vU1360pbcmi9lXFyH3Cm4pqvoN01ni8b07pEzNb8dUbn5/D
 B6ubrX5RjZnknGMt3LqgpBbHj1xqbxi4kT/dTViW587wJLVD9nFVVRiwV8rTTie/
 teDT8Cb7mQz2ku4Htvd7Vs3IP8J63mlluuv86lcJ6UUhEcBd+1PG3qbrC0ouM42Q
 8Ex2NqmsvANQuWtOfJ594MvsdZUtEHkWR4BRG73obgsOZ1RNF7Wfp/xe/FiFGV4d

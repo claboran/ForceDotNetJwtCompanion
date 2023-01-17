@@ -17,13 +17,16 @@ namespace ForceDotNetJwtCompanion.Jwt
     {
         [JsonProperty("iss")]
         public string Iss { get; set; }
+
         [JsonProperty("sub")]
         public string Sub { get; set; }
+        
         [JsonProperty("aud")]
         public string Aud { get; set; }
+        
         [JsonProperty("exp")]
         public string Exp { get; set; }
-        public string ConvertToBase64() => CommonHelpers
-            .UrlEncode(Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(this)));
+        
+        public string ConvertToBase64() => CommonHelpers.UrlEncode(Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(this)));
     }
 }

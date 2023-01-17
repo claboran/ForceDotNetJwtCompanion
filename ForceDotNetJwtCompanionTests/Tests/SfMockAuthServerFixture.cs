@@ -1,8 +1,6 @@
 using System.Threading.Tasks;
+using DotNet.Testcontainers.Builders;
 using DotNet.Testcontainers.Containers;
-using DotNet.Testcontainers.Containers.Builders;
-using DotNet.Testcontainers.Containers.Modules;
-using DotNet.Testcontainers.Containers.WaitStrategies;
 using Xunit;
 
 namespace ForceDotNetJwtCompanionTests.Tests
@@ -17,10 +15,10 @@ namespace ForceDotNetJwtCompanionTests.Tests
     /// </summary>
     public class SfMockAuthServerFixture : IAsyncLifetime
     {
-     
         public IDockerContainer Container { get; set; }
+
         public ushort PublicPort { get; set; }
-        
+
         public async Task InitializeAsync()
         {
             var containerBuilder = new TestcontainersBuilder<TestcontainersContainer>()
