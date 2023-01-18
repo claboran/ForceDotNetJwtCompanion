@@ -2,12 +2,12 @@ using ForceDotNetJwtCompanion.Util;
 using Xunit;
 using static ForceDotNetJwtCompanion.Util.CommonHelpers;
 
-namespace ForceDotNetJwtCompanionTests.Tests
-{
-    public class KeyHelperTests
-    {
+namespace ForceDotNetJwtCompanionTests.Tests;
 
-        private string GetTestPrivKey() => @"MIIEpAIBAAKCAQEA0vU1360pbcmi9lXFyH3Cm4pqvoN01ni8b07pEzNb8dUbn5/D
+public class KeyHelperTests
+{
+
+    private static string GetTestPrivKey() => @"MIIEpAIBAAKCAQEA0vU1360pbcmi9lXFyH3Cm4pqvoN01ni8b07pEzNb8dUbn5/D
 B6ubrX5RjZnknGMt3LqgpBbHj1xqbxi4kT/dTViW587wJLVD9nFVVRiwV8rTTie/
 teDT8Cb7mQz2ku4Htvd7Vs3IP8J63mlluuv86lcJ6UUhEcBd+1PG3qbrC0ouM42Q
 8Ex2NqmsvANQuWtOfJ594MvsdZUtEHkWR4BRG73obgsOZ1RNF7Wfp/xe/FiFGV4d
@@ -34,44 +34,56 @@ lEJV0RJyWbT3vPrbk3Gq2NCKyiI9MvePloA2oDx7NWe21AgdvP3UmfLBij9IFwsM
 F46jxD/IWyLCGcW0/TVeRhK4AhrgohSlwyTXbSoqkFQgmHO/iRjbSw==";
         
         
-        [Fact]
-        public void RemoveFileHeaderFromKey_SimpleInput_Success()
-        {
-            var file = LoadFromFile("TestKeys/server.key");
-            Assert.Equal(GetTestPrivKey(), RemoveHeaderFooterFromKey(file));
-        }
-        
-        [Fact]
-        public void CreatePrivateKeyWrapper_UnencryptedInput_Success()
-        {
-            var keyWrapper = KeyHelpers
-                .CreatePrivateKeyWrapper(LoadFromFile("TestKeys/server.key"));
-            Assert.Equal(5691476862716795873, keyWrapper.Modulus.LongValue);
-            Assert.Equal(-991353888792069707, keyWrapper.Exponent.LongValue);
-            
-        }
-        
-        [Fact]
-        public void CreateSignature_SimpleInput_Success()
-        {
-            var res = KeyHelpers.CreateSignature(
-                KeyHelpers
-                    .CreatePrivateKeyWrapper(LoadFromFile("TestKeys/server.key")),
-                new byte[]{1, 1, 1}
-                );
-            Assert.Equal(41, res[0]);
-        }
-
-        [Fact]
-        public void CreatePrivateKeyWrapper_EncryptedInput_Success()
-        {
-            var keyWrapper = KeyHelpers
-                .CreatePrivateKeyWrapperWithPassPhrase(
-                    LoadFromFile("TestKeys/server.pass.key"), 
-                    "secret"
-                    );
-            Assert.Equal(5691476862716795873, keyWrapper.Modulus.LongValue);
-            Assert.Equal(-991353888792069707, keyWrapper.Exponent.LongValue);
-        }
+    [Fact]
+    public void RemoveFileHeaderFromKey_SimpleInput_Success()
+    {
+        var file = LoadFromFile("TestKeys/server.key");
+        Assert.Equal(GetTestPrivKey(), RemoveHeaderFooterFromKey(file));
     }
+        
+    [Fact]
+    public void CreatePrivateKeyWrapper_UnencryptedInput_Success()
+    {
+        var keyWrapper = KeyHelpers
+            .CreatePrivateKeyWrapper(LoadFromFile("TestKeys/server.key"));
+        Assert.Equal(5691476862716795873, keyWrapper.Modulus.LongValue);
+        Assert.Equal(-991353888792069707, keyWrapper.Exponent.LongValue);
+            
+    }
+        
+    [Fact]
+    public void CreateSignature_SimpleInput_Success()
+    {
+        var res = KeyHelpers.CreateSignature(
+            KeyHelpers
+                .CreatePrivateKeyWrapper(LoadFromFile("TestKeys/server.key")),
+            new byte[]{1, 1, 1}
+        );
+        Assert.Equal(41, res[0]);
+    }
+
+    [Fact]
+    public void CreatePrivateKeyWrapper_EncryptedInput_Success()
+    {
+        var keyWrapper = KeyHelpers
+            .CreatePrivateKeyWrapperWithPassPhrase(
+                LoadFromFile("TestKeys/server.pass.key"), 
+                "secret"
+            );
+        Assert.Equal(5691476862716795873, keyWrapper.Modulus.LongValue);
+        Assert.Equal(-991353888792069707, keyWrapper.Exponent.LongValue);
+    }
+        
+    [Fact]
+    public void CreatePrivateKeyWrapper_EncryptedInputOss3_Success()
+    {
+        var keyWrapper = KeyHelpers
+            .CreatePrivateKeyWrapperWithPassPhrase(
+                LoadFromFile("TestKeys/server-new.pass.key"), 
+                "secret"
+            );
+        Assert.Equal(9044465906678170219, keyWrapper.Modulus.LongValue);
+        Assert.Equal(-1003840893615552391, keyWrapper.Exponent.LongValue);
+    }
+
 }

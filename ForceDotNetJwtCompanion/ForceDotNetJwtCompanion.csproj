@@ -3,20 +3,23 @@
     <PropertyGroup>
         <TargetFramework>netstandard2.1</TargetFramework>
         <Title>.Net Authorization of an Salesforce Org with OAuth 2.0 JWT Bearer Flow</Title>
-        <Authors>Christian Laboranowitsch</Authors>
+        <Authors>Christian Laboranowitsch, Stefan van Raaij</Authors>
         <PackageProjectUrl>https://github.com/claboran/ForceDotNetJwtCompanion</PackageProjectUrl>
         <PackageLicenseUrl>https://github.com/claboran/ForceDotNetJwtCompanion/blob/master/LICENSE</PackageLicenseUrl>
         <RepositoryUrl>https://github.com/claboran/ForceDotNetJwtCompanion.git</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
         <PackageTags>jwt salesforce .Net</PackageTags>
-        <PackageVersion>1.0.2</PackageVersion>
+        <PackageVersion>1.0.3</PackageVersion>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <Description>Authenticate a Salesforce Connected App with OAuth2 JWT Bearer Flow</Description>
+        <LangVersion>10</LangVersion>
+        <Nullable>enable</Nullable>
+        <PackageReleaseNotes>update solution januari 2023</PackageReleaseNotes>
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="BouncyCastle.NetCore" Version="1.8.8" />
-      <PackageReference Include="Newtonsoft.Json" Version="[11.0.1,)" />
+      <PackageReference Include="BouncyCastle.NetCore" Version="1.9.0" />
+      <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
     </ItemGroup>
 
 </Project>
