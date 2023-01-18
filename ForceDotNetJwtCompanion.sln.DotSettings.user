@@ -1,19 +1,4 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=b06ee029_002D60e0_002D49ea_002D8edd_002Dc60a53227d03/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="Authenticate_WithUnencryptedKey_Success" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
-  &lt;TestAncestor&gt;
-    &lt;TestId&gt;xUnit::2CADC6E3-1FCE-4BF7-A27B-7CE49CFE0F96::net5.0::ForceDotNetJwtCompanionTest.Tests.AuthenticationClientTests.Authenticate_WithUnencryptedKey_Success&lt;/TestId&gt;
-  &lt;/TestAncestor&gt;
-&lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=b0ef948d_002Db53c_002D45dd_002Da72c_002Dde125cf79071/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="ReadKeyFile" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
-  &lt;Or&gt;
-    &lt;TestAncestor&gt;
-      &lt;TestId&gt;xUnit::2CADC6E3-1FCE-4BF7-A27B-7CE49CFE0F96::net5.0::ForceDotNetJwtCompanionTest.KeyHelperTests&lt;/TestId&gt;
-      &lt;TestId&gt;xUnit::2CADC6E3-1FCE-4BF7-A27B-7CE49CFE0F96::net5.0::ForceDotNetJwtCompanionTest.JwtTests.JwtPayloadTest&lt;/TestId&gt;
-      &lt;TestId&gt;xUnit::2CADC6E3-1FCE-4BF7-A27B-7CE49CFE0F96::net5.0::ForceDotNetJwtCompanionTest.JwtTests.CreateExpTimeAsStringTest&lt;/TestId&gt;
-      &lt;TestId&gt;xUnit::2CADC6E3-1FCE-4BF7-A27B-7CE49CFE0F96::net5.0::ForceDotNetJwtCompanionTest.JwtTests.JwtPayloadToBase64Test&lt;/TestId&gt;
-      &lt;TestId&gt;xUnit::2CADC6E3-1FCE-4BF7-A27B-7CE49CFE0F96::net5.0::ForceDotNetJwtCompanionTest.JwtTests&lt;/TestId&gt;
-      &lt;TestId&gt;xUnit::2CADC6E3-1FCE-4BF7-A27B-7CE49CFE0F96::net5.0::ForceDotNetJwtCompanionTest.Tests.ValidatorsTests&lt;/TestId&gt;
-    &lt;/TestAncestor&gt;
-    &lt;ProjectFolder&gt;2CADC6E3-1FCE-4BF7-A27B-7CE49CFE0F96/d:Tests&lt;/ProjectFolder&gt;
-  &lt;/Or&gt;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=e39ae419_002D0ef4_002D4086_002D8fda_002Debf0bcde3426/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="All tests from Solution" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;Solution /&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
